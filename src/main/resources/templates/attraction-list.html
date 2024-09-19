@@ -8,13 +8,14 @@
 <body>
 <h1> Attractions</h1>
 
-
+<a th:href="@{/add}" class="btn"> Add New Attraction </a>
 <table>
     <tr>
         <th>Navn</th>
         <th>Description</th>
         <th>Location</th>
         <th></th>
+        <th>Er Gratis</th>
     </tr>
     <tr th:each="attraction : ${attractions}">
         <td th:text="${attraction.name}"></td>
@@ -25,9 +26,11 @@
             <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}" class="btn"> Opdater </a>
             <a th:href="@{/attractions/{name}/delete(name=${attraction.name})}" class="btn"> Slet </a>
         </td>
+        <td>
+            <p th:if="${attraction.getFree() == true}">Ja</p>
+            <p th:if="${!attraction.getFree()}">Nej</p>
+        </td>
     </tr>
-
 </table>
-<a th:href="@{/add}" class="btn"> Add New Attraction </a>
 </body>
 </html>

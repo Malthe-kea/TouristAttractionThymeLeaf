@@ -16,8 +16,13 @@
     <input id="name" name="name" type="hidden" th:value="${touristAttraction.name}">
     <br>
 
-    <div th:text="${name}"></div>
+    <div class="attraction-name" th:text="${name}"></div>
     <br>
+
+    <div>
+        <label for="isFree">Er Gratis</label>
+        <input type="checkbox" th:field="*{free}" id="isFree">
+    </div>
 
     <label for="city">By:</label>
     <select id="city" name="city" th:field="*{city}">

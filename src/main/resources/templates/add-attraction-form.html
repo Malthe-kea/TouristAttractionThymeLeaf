@@ -14,6 +14,11 @@
     <input id="name" name="name" type="text" th:field="*{name}">
     <br>
 
+    <div>
+        <label for="isFree">Er Gratis</label>
+        <input type="checkbox" th:field="*{free}" id="isFree">
+    </div>
+
     <label for="city">By:</label>
     <select id="city" name="city" th:field="*{city}">
         <option th:each="city : ${city}" th:value="${city}"

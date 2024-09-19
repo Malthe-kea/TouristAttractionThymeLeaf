@@ -7,33 +7,33 @@ public class TouristAttraction {
     private String name;
     private String description;
     private UUID id;
-    private List<String> tag;
+    private List<Tag> tag;
     private City city;
+    private Boolean isFree;
 
 
-    public void setTag(List<String> tag) {
+    public void setTag(List<Tag> tag) {
         this.tag = tag;
     }
 
-    public TouristAttraction(String name, String description, City city, List<String> tag){
+    public TouristAttraction(String name, String description, City city, List<Tag> tag, boolean isFree){
         this.name = name;
         this.description = description;
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.tag = tag;
         this.city = city;
+        this.isFree = isFree;
     }
 
     public TouristAttraction() {
-        if(id == null){
-            this.id = UUID.randomUUID();
-        }
+
     }
 
     public String getName() {
         return name;
     }
 
-    public List<String> getTag() {
+    public List<Tag> getTag() {
         return tag;
     }
 
@@ -64,7 +64,15 @@ public class TouristAttraction {
     public void setId(UUID id) {
         this.id = id;
     }
-    public List<String> getTags() {
+    public List<Tag> getTags() {
         return tag;
+    }
+
+    public Boolean getFree() {
+        return isFree;
+    }
+
+    public void setFree(Boolean free) {
+        isFree = free;
     }
 }

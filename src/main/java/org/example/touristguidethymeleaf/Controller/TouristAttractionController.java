@@ -56,8 +56,9 @@ public class TouristAttractionController {
     public String addAttraction(@ModelAttribute TouristAttraction touristAttraction) {
         if (touristAttraction.getName() != "" || touristAttraction.getDescription() != "") {
             touristAttractionService.addAttraction(touristAttraction);
-        } else {
-            throw new RuntimeException("No name or description entered");
+        }
+        if(touristAttraction.getFree() == false){
+
         }
         return "redirect:/";
     }
@@ -68,7 +69,7 @@ public class TouristAttractionController {
         if (t == null) {
             throw new IllegalArgumentException("Invalid attraction name");
         }
-        t.setTag(touristAttraction.getTag());
+        t.setTag(touristAttraction.getTags());
         model.addAttribute("touristAttraction", t);
         model.addAttribute("city", City.values());
         model.addAttribute("tag", Tag.values());
