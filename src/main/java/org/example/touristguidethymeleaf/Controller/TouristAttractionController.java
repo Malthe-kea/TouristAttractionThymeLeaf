@@ -14,7 +14,7 @@ import java.io.InvalidObjectException;
 @RequestMapping(" ")
 public class TouristAttractionController {
 
-private TouristAttractionService touristAttractionService;
+    private TouristAttractionService touristAttractionService;
 
     public TouristAttractionController(TouristAttractionService touristAttractionService) {
         this.touristAttractionService = touristAttractionService;
@@ -27,7 +27,7 @@ private TouristAttractionService touristAttractionService;
     }
 
     @GetMapping("attractions/{name}")
-    public String getAttractionByName(@PathVariable String name, Model model){
+    public String getAttractionByName(@PathVariable String name, Model model) {
         TouristAttraction touristAttraction = touristAttractionService.getAttractionByName(name);
         model.addAttribute("touristAttraction", touristAttraction);
         return "attraction-list";
@@ -37,14 +37,14 @@ private TouristAttractionService touristAttractionService;
     public String getTagsByAttractionName(@PathVariable String name, Model model) {
         TouristAttraction touristAttraction = touristAttractionService.getAttractionByName(name);
         model.addAttribute("tagList", touristAttractionService.getTagsByAttractionName(name));
-       model.addAttribute("touristAttraction", touristAttraction.getName());
-       model.addAttribute("tag", touristAttraction.getTags());
+        model.addAttribute("touristAttraction", touristAttraction.getName());
+        model.addAttribute("tag", touristAttraction.getTags());
         return "tags-list";
 
     }
 
     @GetMapping("/add")
-    public String showAddForm(Model model){
+    public String showAddForm(Model model) {
         TouristAttraction touristAttraction = new TouristAttraction();
         model.addAttribute("touristAttraction", touristAttraction);
         model.addAttribute("city", City.values());
@@ -53,15 +53,19 @@ private TouristAttractionService touristAttractionService;
     }
 
     @PostMapping("/save")
-    public String addAttraction(@ModelAttribute TouristAttraction touristAttraction){
-        touristAttractionService.addAttraction(touristAttraction);
+    public String addAttraction(@ModelAttribute TouristAttraction touristAttraction) {
+        if (touristAttraction.getName() != "" || touristAttraction.getDescription() != "") {
+            touristAttractionService.addAttraction(touristAttraction);
+        } else {
+            throw new RuntimeException("No name or description entered");
+        }
         return "redirect:/";
     }
 
     @GetMapping("attractions/{name}/edit")
-    public String showEditTouristAttractionForm(TouristAttraction touristAttraction, Model model){
+    public String showEditTouristAttractionForm(TouristAttraction touristAttraction, Model model) {
         TouristAttraction t = touristAttractionService.getAttractionByName(touristAttraction.getName());
-        if (t == null){
+        if (t == null) {
             throw new IllegalArgumentException("Invalid attraction name");
         }
         t.setTag(touristAttraction.getTag());
@@ -73,7 +77,7 @@ private TouristAttractionService touristAttractionService;
     }
 
     @PostMapping("attractions/update")
-    public String saveEditAttractionForm(TouristAttraction touristAttraction){
+    public String saveEditAttractionForm(TouristAttraction touristAttraction) {
         touristAttractionService.updateAttraction(touristAttraction);
         return "redirect:/";
     }

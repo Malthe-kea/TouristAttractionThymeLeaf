@@ -39,7 +39,9 @@ input[type="text"], select {
 }
 
 .checkboxes {
-    margin-bottom: 15px;
+    display: flex;
+    margin: auto;
+
 }
 
 input[type="checkbox"] {
