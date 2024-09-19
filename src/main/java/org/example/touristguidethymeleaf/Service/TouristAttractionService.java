@@ -1,5 +1,6 @@
 package org.example.touristguidethymeleaf.Service;
 
+import org.example.touristguidethymeleaf.Model.Tag;
 import org.example.touristguidethymeleaf.Model.TouristAttraction;
 import org.example.touristguidethymeleaf.Repository.TouristAttractionRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class TouristAttractionService {
         return touristAttractionRepository.getAllAttractions();
     }
 
-    public List<String> getTagsByAttractionName(String name){
+    public List<Tag> getTagsByAttractionName(String name){
         return touristAttractionRepository.getTagsByAttractionName(name);
     }
 
