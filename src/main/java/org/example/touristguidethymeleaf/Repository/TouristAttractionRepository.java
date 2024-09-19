@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class TouristAttractionRepository {
-    private List<Tag> tags = new ArrayList<>();
+    private List<String> tags = new ArrayList<>();
     private List<TouristAttraction> attractionList;
 
     public TouristAttractionRepository() {

@@ -28,9 +28,11 @@
         </td>
         <td>
             <p th:if="${attraction.getFree() == true}">Ja</p>
-            <p th:if="${!attraction.getFree()}">Nej</p>
+            <p th:if="${attraction.getFree() != true}">Nej</p>
         </td>
     </tr>
+
 </table>
+<a th:href="@{/add}" class="btn"> Add New Attraction </a>
 </body>
 </html>
