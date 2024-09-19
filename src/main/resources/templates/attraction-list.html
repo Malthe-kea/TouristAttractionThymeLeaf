@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attractions</title>
+    <link rel="stylesheet" href="stylesheetTouristGuide.css">
+</head>
+<body>
+<h1> Attractions</h1>
+
+
+<table>
+    <tr>
+        <th>Navn</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th></th>
+    </tr>
+    <tr th:each="attraction : ${attractions}">
+        <td th:text="${attraction.name}"></td>
+        <td th:text="${attraction.description}"></td>
+        <td th:text="${attraction.city.getCity()}"></td>
+        <td>
+            <a th:href="@{/attractions/{name}/tag(name=${attraction.name})}" class="btn"> Tags </a>
+            <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}" class="btn"> Opdater </a>
+            <a th:href="@{/attractions/{name}/delete(name=${attraction.name})}" class="btn"> Slet </a>
+        </td>
+    </tr>
+
+</table>
+<a th:href="@{/add}" class="btn"> Add New Attraction </a>
+</body>
+</html>
