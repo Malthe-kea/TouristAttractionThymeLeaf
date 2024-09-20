@@ -57,9 +57,6 @@ public class TouristAttractionController {
         if (touristAttraction.getName() != "" || touristAttraction.getDescription() != "") {
             touristAttractionService.addAttraction(touristAttraction);
         }
-        if(touristAttraction.getFree() == false){
-
-        }
         return "redirect:/";
     }
 
