@@ -35,8 +35,8 @@
     <input id="description" name="description" type="text" th:value="*{description}">
     <br>
 
-    <div class="checkboxes" th:each="tag : ${tag}">
-        <input type="checkbox" th:field="*{tag}" th:value="${tag}" th:text="${tag}"/>
+    <div id="tag" class="checkboxes" th:each="tag : ${tag}">
+        <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:text="${tag}"/>
     </div>
 
     <button type="submit">Submit</button>

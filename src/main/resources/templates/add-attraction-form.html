@@ -30,9 +30,9 @@
     <input id="description" name="description" type="text" th:value="*{description}">
     <br>
 
-    <label for="tag">Tags</label>
+
     <div id="tag" class="checkboxes" th:each="tag : ${tag}">
-        <input type="checkbox" th:field="*{tag}" th:value="${tag}" th:text="${tag}"/>
+        <input type="checkbox" th:field="*{tags}" th:value="${tag}" th:text="${tag}"/>
     </div>
 
 

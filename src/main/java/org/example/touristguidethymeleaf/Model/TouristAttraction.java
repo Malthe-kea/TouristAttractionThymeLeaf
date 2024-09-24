@@ -1,5 +1,6 @@
 package org.example.touristguidethymeleaf.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -7,15 +8,9 @@ public class TouristAttraction {
     private String name;
     private String description;
     private UUID id;
-    private List<Tag> tag;
+    private List<Tag> tag = new ArrayList<>();
     private City city;
     private Boolean isFree;
-
-
-
-    public void setTag(List<Tag> tag) {
-        this.tag = tag;
-    }
 
     public TouristAttraction(String name, String description, City city, List<Tag> tag, boolean isFree){
         this.name = name;
@@ -31,9 +26,6 @@ public class TouristAttraction {
     }
     public String getName() {
         return name;
-    }
-    public List<Tag> getTag() {
-        return tag;
     }
     public City getCity() {
         return city;
@@ -64,5 +56,8 @@ public class TouristAttraction {
     }
     public void setFree(Boolean free) {
         isFree = free;
+    }
+    public void setTags(List<Tag> tag) {
+        this.tag = tag;
     }
 }

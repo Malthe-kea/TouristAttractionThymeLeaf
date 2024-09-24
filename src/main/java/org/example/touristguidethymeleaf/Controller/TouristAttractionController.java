@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.InvalidObjectException;
+import java.util.Arrays;
 
 @Controller()
 @RequestMapping(" ")
@@ -66,7 +67,8 @@ public class TouristAttractionController {
         if (t == null) {
             throw new IllegalArgumentException("Invalid attraction name");
         }
-        t.setTag(touristAttraction.getTags());
+
+        t.getTags();
         model.addAttribute("touristAttraction", t);
         model.addAttribute("city", City.values());
         model.addAttribute("tag", Tag.values());
