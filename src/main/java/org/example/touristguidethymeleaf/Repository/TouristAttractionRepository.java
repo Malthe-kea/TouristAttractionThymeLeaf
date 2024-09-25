@@ -30,7 +30,8 @@ public class TouristAttractionRepository {
                 new TouristAttraction("Sønderborg Slot", "Et slot, der ligger på øen Als i Sønderjylland", City.SOENDERBORG, List.of(Tag.HISTORIC),true),
                 new TouristAttraction("Grenen", "grenen i Skagen er det nordligste punkt i Danmark", City.AALBORG, List.of(Tag.RESTAURANT),false),
                 new TouristAttraction("Hammershus", "En rundkirke på øen Bornholm", City.COPENHAGEN, List.of(Tag.CULTURE), false),
-                new TouristAttraction("Den Gamle By", "En gammel by i Aarhus", City.AARHUS, List.of(Tag.MOUNTAIN),true)
+                new TouristAttraction("Den Gamle By", "En gammel by i Aarhus", City.AARHUS, List.of(Tag.MOUNTAIN),true),
+                new TouristAttraction("Helvede", "Et varmt og ubehageligt sted at befinde sig.", City.AARHUS, List.of(Tag.MOUNTAIN),true)
         ));
     }
     public List<Tag> getTagsByAttractionName(String name) {
