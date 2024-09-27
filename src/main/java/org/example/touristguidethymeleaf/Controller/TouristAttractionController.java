@@ -12,7 +12,7 @@ import java.io.InvalidObjectException;
 import java.util.Arrays;
 
 @Controller()
-@RequestMapping(" ")
+@RequestMapping("")
 public class TouristAttractionController {
 
     private TouristAttractionService touristAttractionService;
