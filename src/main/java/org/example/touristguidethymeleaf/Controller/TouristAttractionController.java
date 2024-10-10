@@ -99,5 +99,9 @@ public class TouristAttractionController {
         return "redirect:/";
     }
 
+    public void testMetode (){
+        touristAttractionService.getAllAttractions();
+    }
+
 
 }
